@@ -31,7 +31,7 @@ jobs:
           avd-name: myavd
           install: true
           system-image: system-images;android-29;default;x86
-      - run: flutter doctor
+      - run: emulator -list-avds
 workflows:
   distribute:
     jobs:
