@@ -28,22 +28,23 @@ jobs:
           name: Install Flutter SDK
       - run: flutter doctor
       - run: flutter pub get
-      - android/create-avd:
-          avd-name: myavd
-          install: true
-          system-image: system-images;android-29;google_apis;x86
-      - run:
-          name: Launch Emulator
-          command: |
-            emulator -avd myavd
-          background: true
-      - android/wait-for-emulator
-      - run: flutter doctor
-      - run:
-          name: Run Flutter Integration Tests
-          command: |
-            flutter drive --driver=integration_test/driver.dart --target=integration_test/app_test.dart
-          no_output_timeout: 20m
+      - run: avdmanager list avd
+      # - android/create-avd:
+      #     avd-name: myavd
+      #     install: true
+      #     system-image: system-images;android-29;google_apis;x86
+      # - run:
+      #     name: Launch Emulator
+      #     command: |
+      #       emulator -avd myavd
+      #     background: true
+      # - android/wait-for-emulator
+      # - run: flutter doctor
+      # - run:
+      #     name: Run Flutter Integration Tests
+      #     command: |
+      #       flutter drive --driver=integration_test/driver.dart --target=integration_test/app_test.dart
+      #     no_output_timeout: 20m
 workflows:
   flutter_workflow:
     jobs:
