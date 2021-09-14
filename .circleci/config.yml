@@ -6,10 +6,11 @@ jobs:
   integration-test:
     executor:
       name: android/android-machine
-    working_directory: ~/my-flutter-project
+    working_directory: ~/bicarakan-test
     steps:
       - checkout:
-          path: ~/my-flutter-project
+          path: ~/bicarakan-test
+      - run: pwd
       - run:
           command: |
               mkdir ~/development && cd $_
