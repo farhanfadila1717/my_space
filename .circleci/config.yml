@@ -31,7 +31,11 @@ jobs:
           avd-name: myavd
           install: true
           system-image: system-images;android-29;default;x86
-      - run: emulator -avd myavd
+      - run:
+          name: Launch Emulator
+          command: |
+            emulator -avd myavd
+          background: true
       - android/wait-for-emulator
       - run: flutter doctor
 workflows:
