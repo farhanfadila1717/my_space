@@ -3,7 +3,7 @@ orbs:
   android: circleci/android@1.0.3
   flutter: circleci/flutter@1.0
 jobs:
-  distribute:
+  integration-test:
     executor:
       name: android/android-machine
     working_directory: ~/my-flutter-project
@@ -32,8 +32,9 @@ jobs:
           install: true
           system-image: system-images;android-29;default;x86
       - run: emulator -avd myavd
+      - android/wait-for-emulator
       - run: flutter doctor
 workflows:
-  distribute:
+  flutter_workflow:
     jobs:
-      - distribute
+      - integration-test
