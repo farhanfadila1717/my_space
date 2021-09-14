@@ -6,7 +6,10 @@ jobs:
   distribute:
     executor:
       name: android/android-machine
+    working_directory: ~/my-flutter-project
     steps:
+      - checkout:
+          path: ~/my-flutter-project
       - run:
           command: |
               mkdir ~/development && cd $_
