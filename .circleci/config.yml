@@ -26,7 +26,7 @@ jobs:
               echo 'export PATH=~/development/flutter/bin:$PATH' >> $BASH_ENV
           name: Install Flutter SDK
       - run: flutter doctor
-      - run: ls
+      - run: flutter pub get
 workflows:
   distribute:
     jobs:
