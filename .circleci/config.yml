@@ -38,6 +38,11 @@ jobs:
           background: true
       - android/wait-for-emulator
       - run: flutter doctor
+      - run:
+          name: Run Flutter Integration Tests
+          command: |
+            flutter drive --driver=integration_test/driver.dart --target=integration_test/app_test.dart
+          no_output_timeout: 20m
 workflows:
   flutter_workflow:
     jobs:
